@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Akinator : UnityEngine.MonoBehaviour
@@ -19,8 +20,6 @@ public class Akinator : UnityEngine.MonoBehaviour
     public UnityEngine.GameObject preguntaPanel;
     public UnityEngine.GameObject respuestaPanel;
 
-    public Dropdown opcionDrop;
-    public Button botonSubir;
 
     // Start is called before the first frame update
     void Start()
@@ -114,6 +113,7 @@ public class Akinator : UnityEngine.MonoBehaviour
                 }
             }
             UnityEngine.GameObject.Find("TextoRespuestaXDDx").GetComponent<UnityEngine.UI.Text>().text = nombresAlumnos[iteracion];
+            
         }
     }
 
@@ -155,6 +155,7 @@ public class Akinator : UnityEngine.MonoBehaviour
             writter.Write(item);
             
         }
+        
         //writter.
         writter.Close();
         ReiniciarDatos(ref o);
