@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using UnityEngine.UI;
 
 public class Akinator : UnityEngine.MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class Akinator : UnityEngine.MonoBehaviour
 
     public UnityEngine.GameObject preguntaPanel;
     public UnityEngine.GameObject respuestaPanel;
+
+    public Dropdown opcionDrop;
+    public Button botonSubir;
 
     // Start is called before the first frame update
     void Start()
@@ -138,17 +142,20 @@ public class Akinator : UnityEngine.MonoBehaviour
         dataSets.Add(new NeuralNetwork.DataSet(respuesta, salidasDeseadas));
         net.Train(dataSets, 0.1);
         StreamWriter writter = new StreamWriter(path, true);
+        
         foreach (double item in respuesta)
         {
-            writter.WriteLine(item);
+            writter.Write(writter.NewLine);
+            writter.Write(item);
             
         }
         foreach (double item in salidasDeseadas)
         {
-            writter.WriteLine(item);
+            writter.Write(writter.NewLine);
+            writter.Write(item);
             
         }
-        writter.WriteLine("");
+        //writter.
         writter.Close();
         ReiniciarDatos(ref o);
     }
